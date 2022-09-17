@@ -19,6 +19,10 @@ body {
 
 header {
   margin-top: 32px;
+
+  /* função de cálculo no css, nesse caso usado para calcular a altura do header, adicionando 32px
+  para não grudar o header com a caixa de jogos */
+  height: calc(120px + 32px);
 }
 
 header div {
@@ -131,3 +135,56 @@ section ul li:hover {
 
 /* animation */
 
+header div {
+  /* adicionando a animação; colocando o tempo que eu quero que demore para completar a 
+  animação de caindo (.7s); colocando quando tempo eu quero que demore pra imagem aparecer e
+  começar a cair, mais conhecido como delay (.4s); pega as informações da animação e mantém
+  na tag (backwards) */
+  animation: fromTop .7s .2s backwards;
+}
+
+main section {
+  animation: fromBottom .7s backwards;
+}
+
+/* "main, pega a section filho número(*) e..." */
+main section:nth-child(1) {
+  animation-delay: 0;
+}
+
+main section:nth-child(2) {
+  animation-delay: .4s;
+}
+
+main section:nth-child(3) {
+  animation-delay: .8s;
+}
+
+/* fromTop é apenas a identificação/nome da animação */
+@keyframes fromTop {
+
+  /* nessa animação, estamos dizendo que o elemento que a tiver, terá a animação de "caindo".
+  saindo de um pouco acima da sua posição inicial (-30px), e indo para a posição original (0) */
+  from {
+    opacity: 0;
+    /* é o translate que vai mover o elemento, nesse caso no eixo Y (eixo vertical)  */
+    transform: translateY(-30px)
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px)
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
