@@ -21,10 +21,33 @@ main {
   max-width: 580px;
   width: 90%;
   margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  margin-top: 32px;
 }
 
 section {
   color: white;
+
+  /* propriedade pra deixar a linha colorida acima da caixa */
+  background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+
+  /* usando padding top para a cor aparecer um pouco acima da div */
+  padding-top: 4px;
+
+  /* usando esse arredondamento para esconder as pontas de baixo da parte colorida, e
+  para aumentar um pouco as extremidades da caixa */
+  border-radius: 10px;
+}
+
+section div {
+  background-color: #2a2634;
+  padding: 32px;
+  padding-top: 24px;
+  border-radius: 8px;
 }
 
 section h2 {
@@ -36,8 +59,25 @@ section p {
   color: #A1A1AA;
 }
 
-ul {
+section ul {
   list-style: none;
+  display: flex;
+  /* flex-wrap - propriedade usada para quando acabar o espaço dentro da caixa, ele não jogar
+  os elementos pro lado e sim para baixo, respeitando o limite da caixa e da tela */
+  flex-wrap: wrap;
+  /* a propriedade gap, só funciona pq estamos usando display flex (funciona também com grid) */
+  gap: 16px;
+
+  margin-top: 24px;
 }
 
-/* STAGE 3 - MINUTO 42:36 */
+.games-list img {
+  width: 90px;
+  /* border-radius é arredondamento de borda */
+  border-radius: 8px;
+}
+
+.channel-list img {
+  border-radius: 50%;
+  width: 50px;
+}
